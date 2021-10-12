@@ -2,11 +2,38 @@ const bodyParser = require('body-parser');
 
 const express = require('express');
 
-const { Patients, Plans } = require('./models');
+const { Patients, Plans, Surgeries, PatientSurgeries } = require('./models');
 
 const app = express();
-app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
+
+//lista todos pacientes que estão cadastrados em certo plano
+app.get('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const plans = await Patients.findAll(
+      { where: { 'plan_id': id } }
+    )
+    res.status(200).json(plans);
+  } catch (e) {
+    console.log(e.message);
+    res.send('): ...');
+  }
+});
+
+// lista pacientes e suas cirurgias
+app.get('/patients/surgeries', async (req, res) => {
+  try {
+    const PatientsSurgeries = await Patients.findAll({
+      include: { model: Surgeries, as: 'Surgeries', through: { attributes: [] } },
+    });
+    return res.status(200).json(PatientsSurgeries);
+  } catch (e) {
+    console.log(e.message);
+    res.send('): ...');
+  }
+});
 
 // lista pacientes e seus planos
 app.get('/patients' , async (req, res) => {
@@ -19,7 +46,7 @@ app.get('/patients' , async (req, res) => {
     console.log(e.message);
     res.status(500).json({ message: 'ops...' });
   }
-})
+});
 
 const PORT = 3000;
 
