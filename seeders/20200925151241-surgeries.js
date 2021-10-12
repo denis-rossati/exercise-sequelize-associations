@@ -6,36 +6,36 @@ module.exports = {
       'Surgeries',
       [
         {
-          specialty: 'Apendicectomia',
+          speciality: 'Apendicectomia',
           doctor: 'Rey Dos Santos'
         },
         {
-          specialty: 'Cistectomia',
+          speciality: 'Cistectomia',
           doctor: 'Marcos Afonso'
         },
 
         {
-          specialty: 'Colecistectomia',
+          speciality: 'Colecistectomia',
           doctor: 'Iuri Solto'
         },
         {
-          specialty: 'Craniectomia',
+          speciality: 'Craniectomia',
           doctor: 'Marilene Tobias'
         },
         {
-          specialty: 'Gastrorrafia',
+          speciality: 'Gastrorrafia',
           doctor: 'Joana Machado'
         },
         {
-          specialty: 'Herniorrafia',
+          speciality: 'Herniorrafia',
           doctor: 'Lincoln Mathias'
         },
         {
-          specialty: 'Hisperopexia',
+          speciality: 'Hisperopexia',
           doctor: 'Alessandra Martins'
         },
         {
-          specialty: 'Cistoscopia',
+          speciality: 'Cistoscopia',
           doctor: 'Adailton Rodrigues'
         },
       ],
