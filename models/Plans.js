@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
     underscored: true,
   }); 
   Plans.associate = (models) => {
-    Plans.belongsTo(models.Patients,
-      { foreignKey: 'plan_id', as: 'plans' });
+    Plans.hasOne(models.Patients,
+      { foreignKey: 'plan_id', as: 'patients' });
   };
   return Plans;
 }
